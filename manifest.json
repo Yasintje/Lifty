@@ -8,7 +8,7 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "https://yasintje.github.io/Lifty/",
-    "description": "Exercise Tracker not app",
+    "description": "Exercise Tracker note app",
     "orientation": "any",
     "icons": [
         {
