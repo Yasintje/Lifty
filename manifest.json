@@ -2,18 +2,18 @@
 
   {
     "name": "Lifty",
-    "short_name": "Lifty",
+    "short_name": "Yasin",
     "theme_color": "#000000",
     "background_color": "#000000",
     "display": "standalone",
     "scope": "/",
     "start_url": "https://yasintje.github.io/Lifty/",
-    "description": "Exercise Tracker note app",
+    "description": "Exercise Tracker not app",
     "orientation": "any",
     "icons": [
         {
-            "src": "./icon.png",
+            "src": "./resources/icon.png",
             "sizes": "225x225"
         }
     ]
-}
+}    
