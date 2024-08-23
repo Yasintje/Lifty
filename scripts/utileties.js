@@ -106,7 +106,7 @@ timerDropdownContainer.style.display = "none";
 
 let input = document.createElement("input");
 
-input.value = localStorage.setItem('exercises', JSON.stringify(exercises));
+input.value = localStorage.getItem('exercises');
 
 test.select();
 document.execCommand("copy");
