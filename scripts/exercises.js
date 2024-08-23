@@ -1,4 +1,4 @@
-[
+const EXERCISES = [
   // Legs
   "Squats",
   "Leg Extensions",
