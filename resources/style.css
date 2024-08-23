@@ -8,7 +8,6 @@ body {
     min-height: 100vh;
     background-color: #121212;
     color: #e0e0e0;
-    padding: 10px
 }
 
 .container {
@@ -91,7 +90,7 @@ button:hover {
     transform: translateY(-2px);
 }
 
-.reset-button {
+.delete-button {
     background-color: #dc3545;
     border: none;
     color: white;
@@ -107,12 +106,12 @@ button:hover {
     transition: background-color 0.3s ease;
 }
 
-.reset-button:hover {
+.delete-button:hover {
     background-color: #c82333;
 }
 
 #editor {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 #editor.hidden {

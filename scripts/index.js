@@ -6,37 +6,16 @@ const editorContent = document.getElementById('editor-content');
 const lastEditedDate = document.getElementById('last-edited-date');
 const closeButton = document.getElementById('close');
 const changeNameButton = document.getElementById('change-name'); // New change name button
+const submitExerciseButton = document.getElementById('exercise-name');
+const exerciseNameInput = document.getElementById('excercise-input');
 
 const quill = new Quill('#editor-content', {
     theme: 'snow'
 });
 
 let currentExerciseIndex = { value: null }; // Track the current exercise
-let beginExcercises = []
-EXERCISES.forEach(name=> beginExcercises.push({"name": name ,"details":"", "lastEdited":"Never"}))
-
-let exercises = JSON.parse(localStorage.getItem('exercises')) || beginExcercises;
+let exercises = JSON.parse(localStorage.getItem('exercises')) || [];
 let isEdited = { value: false }; // Track if there are unsaved changes
-
-EXERCISES.forEach(exerciseName => {
-    const exists = exercises.some(e => e.name === exerciseName);
-    if (!exists) {
-        exercises.push({ "name": exerciseName, "details": "", "lastEdited": "Never" });
-        localStorage.setItem('exercises', JSON.stringify(exercises));
-        exercises = JSON.parse(localStorage.getItem('exercises'));
-    }
-});
-
-// Remove exercises that are not in the EXERCISES list
-exercises = exercises.filter(e => EXERCISES.includes(e.name));
-
-// Now add exercises from the EXERCISES list that are not in the exercises array
-EXERCISES.forEach(exerciseName => {
-    const exists = exercises.some(e => e.name === exerciseName);
-    if (!exists) {
-        exercises.push({ "name": exerciseName, "details": "", "lastEdited": "Never" });
-    }
-});
 
 
 function saveExercise(index) {
@@ -47,7 +26,7 @@ function saveExercise(index) {
         
         exercises[index].lastEdited = formattedDate; // Update last edited time
         localStorage.setItem('exercises', JSON.stringify(exercises));
-        renderExercises(exerciseList, exercises, editor, editorTitle, quill, lastEditedDate, closeButton, resetExercise, currentExerciseIndex, isEdited);
+        renderExercises(exerciseList, exercises, editor, editorTitle, quill, lastEditedDate, closeButton, deleteExercise, changeNameButton, currentExerciseIndex, isEdited);
         isEdited.value = false; // Reset the edit state after saving
 
         const query = searchInput.value.toLowerCase();
@@ -58,13 +37,13 @@ function saveExercise(index) {
     }
 }
 
-function resetExercise(index) {
-    exercises[index].details = "";
-    exercises[index].lastEdited = "Never";
+function deleteExercise(index) {
+    exercises.splice(index, 1);
     localStorage.setItem('exercises', JSON.stringify(exercises));
-    renderExercises(exerciseList, exercises, editor, editorTitle, quill, lastEditedDate, closeButton, resetExercise, currentExerciseIndex, isEdited);
+    renderExercises(exerciseList, exercises, editor, editorTitle, quill, lastEditedDate, closeButton, deleteExercise, changeNameButton, currentExerciseIndex, isEdited);
     editor.classList.add('hidden');
 }
+
 
 function changeExerciseName(index) {
     const newName = prompt("Enter the new name for this exercise:", exercises[index].name);
@@ -75,7 +54,7 @@ function changeExerciseName(index) {
         
         exercises[index].lastEdited = formattedDate; // Update last edited time
         localStorage.setItem('exercises', JSON.stringify(exercises));
-        renderExercises(exerciseList, exercises, editor, editorTitle, quill, lastEditedDate, closeButton, resetExercise, currentExerciseIndex, isEdited);
+            renderExercises(exerciseList, exercises, editor, editorTitle, quill, lastEditedDate, closeButton, deleteExercise, changeNameButton, currentExerciseIndex, isEdited);
         editorTitle.innerText = newName.trim();
     }
 }
@@ -99,7 +78,17 @@ closeButton.addEventListener("click", () =>{
         exerciseList.style.display = "block";
     }
 
-})
+});
+
+submitExerciseButton.addEventListener('click', () => {
+    const name = exerciseNameInput.value.trim();
+    if (name) {
+        exercises.push({ name, details: '', lastEdited: 'Never' });
+        localStorage.setItem('exercises', JSON.stringify(exercises));
+        exerciseNameInput.value = ''; // Clear the input field
+        renderExercises();
+    }
+});
 
 // Automatically save when Quill editor content changes
 quill.on('text-change', () => {
@@ -110,5 +99,5 @@ quill.on('text-change', () => {
 });
 
 // Initial render
-renderExercises(exerciseList, exercises, editor, editorTitle, quill, lastEditedDate, closeButton, resetExercise, currentExerciseIndex, isEdited);
+renderExercises(exerciseList, exercises, editor, editorTitle, quill, lastEditedDate, closeButton, deleteExercise, changeNameButton, currentExerciseIndex, isEdited);
 

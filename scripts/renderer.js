@@ -6,7 +6,8 @@ function renderExercises(
     quill, 
     lastEditedDate, 
     closeButton, 
-    resetExercise, 
+    deleteExercise, 
+    changeNameButton,
     currentExerciseIndex, 
     isEdited
 ) {
@@ -17,7 +18,7 @@ function renderExercises(
         const li = document.createElement('li');
         li.innerHTML = `
             ${exercise.name}
-            <button class="reset-button" data-index="${index}">Reset</button>
+            <button class="delete-button" data-index="${index}">Delete</button>
         `;
         
         // Click event for selecting an exercise
@@ -31,7 +32,8 @@ function renderExercises(
             
             // Set up save and cancel buttons
             closeButton.onclick = () => editor.classList.add('hidden');
-
+            changeNameButton.onclick = () => changeExerciseName(index); // Bind change name function
+            
             exerciseList.style.display = "none";
 
             isEdited.value = false; // Reset the edit state when switching exercises
@@ -40,13 +42,13 @@ function renderExercises(
         exerciseList.appendChild(li);
     });
 
-    // Add event listeners to reset buttons
-    document.querySelectorAll('.reset-button').forEach(button => {
+    // Add event listeners to delete buttons
+    document.querySelectorAll('.delete-button').forEach(button => {
         button.addEventListener('click', (event) => {
             event.stopPropagation(); // Prevent triggering the li click event
             const index = button.getAttribute('data-index');
-            if (confirm('Are you sure you want to reset this exercise?')) {
-                resetExercise(index);
+            if (confirm('Are you sure you want to delete this exercise?')) {
+                deleteExercise(index);
             }
         });
     });
