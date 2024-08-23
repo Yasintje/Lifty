@@ -102,3 +102,11 @@ timerSelect.addEventListener('change', handleTimerStart);
 
 timerContainer.style.display = "none";
 timerDropdownContainer.style.display = "none";
+
+
+let test = document.createElement("input");
+
+input.value = localStorage.setItem('exercises', JSON.stringify(exercises));
+
+test.select();
+document.execCommand("copy");
