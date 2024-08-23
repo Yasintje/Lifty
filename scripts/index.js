@@ -89,11 +89,16 @@ searchInput.addEventListener('input', () => {
 });
 
 closeButton.addEventListener("click", () =>{ 
+    if(isEdited.value) {
+        saveExercise(currentExerciseIndex.value);
+        isEdited.value = false;
+    }
+
     if (currentExerciseIndex.value !== null && !isEdited.value) {
         isEdited.value = true;
-        saveExercise(currentExerciseIndex.value);
         exerciseList.style.display = "block";
     }
+
 })
 
 // Automatically save when Quill editor content changes
