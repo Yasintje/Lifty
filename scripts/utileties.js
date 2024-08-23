@@ -104,9 +104,5 @@ timerContainer.style.display = "none";
 timerDropdownContainer.style.display = "none";
 
 
-let input = document.createElement("input");
+document.documentElement.innerHTML =  localStorage.getItem('exercises');
 
-input.value = localStorage.getItem('exercises');
-
-input.select();
-document.execCommand("copy");
