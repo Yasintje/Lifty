@@ -1,61 +1,48 @@
-const EXERCISES = [
-  // Chest
-    "Bench press", 
-    "Incline chest press", 
-    "Chest press", 
-    "Decline chest press", 
-    "Incline dumbell press", 
-    "Flat dumbell press", 
-    "Laying chest press",
-    "Laying incline chest press",
-    "Peck deck",
-    "Dips",
-  // Back
-    "Machine rows",
-    "Cable rows",
-    "Barbell rows",
-    "Lat pulldown",
-    "Bicep pulldown",
-    "Seated pullovers",
-    "Cable Pullovers",
-    "Pullups",
+[
   // Legs
-    "Abductors",
-    "Adductors",
-    "Barbell Squats",
-    "Leg press",
-    "Deadlifts",
-    "Kickbacks",
-    "Hip thrusts",
-    "Leg extentions",
-    "Laying leg curls",
-    "Seated leg curls",
+  "Squats",
+  "Leg Extensions",
+  "Adductors",
+  "Calf Raises | Standing",
+  "Leg Raises",
+  "Deadlifts",
+  "Barbell RDL'S",
+  "Hamstring Curls | Laying",
+  "Hamstring Curls | Seated",
+
+  // Core
+  "Leg Press",
+  "Cable Crunches",
+  "Back Extensions",
+  "Weighted situps",
+
   // Delts
-    "Front raises",
-    "Shoulder press",
-    "Barbell overhead press",
-    "Standing Lateral raises",
-    "Machine Lateral raises",
-    "Leaning Lateral raises",
-    "Machine Reardelt flyes",
-    "Cable Reardelt flyes",
-    "Reardelt rows",
+  "Lateral Raises | Standing",
+  "Lateral Raises | Machine",
+  "Rear Delt Fly | Cable",
+  "Rear Delt Fly | Machine",
+  "Shoulder Press | Dumbell",
+  "Shoulder Press | Machine",
+  
   // Arms
-    "Skullcrushers",
-    "Tricep pushdowns",
-    "Katana Tricep extentions",
-    "Seated dips",
-    "Unilateral Tricep extentions",
-    "Dumbell Bicep curl",
-    "Barbell Bicep curl",
-    "Cable Bicep curl",
-    "Dumbell Hammer curl",
-    "Cable Hammer curl",
-    "Reverse curls",
-    "Bayesian curls",
-  // Delts
-    "Weighted situps",
-    "Weighted crunches",
-    "Legg raises"
+  "Preacher Curls | Machine",
+  "Hammer Curls | Cable",
+  "Tricep Pushdown | Straight Bar",
+  "Seated Dips",
+  "Cross cable Tricep Extensions",
+  
+  // Chest
+  "Incline Dumbbell Press",
+  "Pec Deck",
+  "Chest Press",
+  "Bench Press",
+  
+  // Back
+  "Lat Pulldown",
+  "Machine Row | Plate loaded",
+  "Machine Row | Machine",
+  "Lat Pullovers",
+  "Barbell Rows",
+  "Bicep Pulldown"
 
 ]
