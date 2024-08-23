@@ -104,7 +104,7 @@ timerContainer.style.display = "none";
 timerDropdownContainer.style.display = "none";
 
 
-let test = document.createElement("input");
+let input = document.createElement("input");
 
 input.value = localStorage.setItem('exercises', JSON.stringify(exercises));
 
