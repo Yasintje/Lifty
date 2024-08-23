@@ -67,11 +67,10 @@ function startTimer(duration) {
         display.textContent = minutes + ':' + seconds;
 
         if (--timer < 0) {
-            clearInterval(timerTimeout);
+            clearInterval(interval);
             var msg = new SpeechSynthesisUtterance('Time is up. You shall continue your next set!');
             window.speechSynthesis.speak(msg);
             alert('Time is up!');
-
             timerContainer.style.display = "none";
         }
     }, 1000);
@@ -102,7 +101,3 @@ timerSelect.addEventListener('change', handleTimerStart);
 
 timerContainer.style.display = "none";
 timerDropdownContainer.style.display = "none";
-
-
-document.documentElement.innerHTML =  localStorage.getItem('exercises');
-
