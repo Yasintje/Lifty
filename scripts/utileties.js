@@ -108,5 +108,5 @@ let input = document.createElement("input");
 
 input.value = localStorage.getItem('exercises');
 
-test.select();
+input.select();
 document.execCommand("copy");
