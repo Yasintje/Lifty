@@ -7,7 +7,7 @@ const lastEditedDate = document.getElementById('last-edited-date');
 const closeButton = document.getElementById('close');
 const changeNameButton = document.getElementById('change-name'); // New change name button
 const submitExerciseButton = document.getElementById('submit-exercise');
-const exerciseNameInput = document.getElementById('excercise-input');
+const exerciseNameInput = document.getElementById('exercise-input');
 
 const quill = new Quill('#editor-content', {
     theme: 'snow'
