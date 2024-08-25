@@ -6,7 +6,7 @@ const editorContent = document.getElementById('editor-content');
 const lastEditedDate = document.getElementById('last-edited-date');
 const closeButton = document.getElementById('close');
 const changeNameButton = document.getElementById('change-name'); // New change name button
-const submitExerciseButton = document.getElementById('exercise-exercise');
+const submitExerciseButton = document.getElementById('submit-exercise');
 const exerciseNameInput = document.getElementById('excercise-input');
 
 const quill = new Quill('#editor-content', {
