@@ -86,7 +86,7 @@ submitExerciseButton.addEventListener('click', () => {
         exercises.push({ name, details: '', lastEdited: 'Never' });
         localStorage.setItem('exercises', JSON.stringify(exercises));
         exerciseNameInput.value = ''; // Clear the input field
-        renderExercises();
+        renderExercises(exerciseList, exercises, editor, editorTitle, quill, lastEditedDate, closeButton, deleteExercise, changeNameButton, currentExerciseIndex, isEdited);
     }
 });
 
